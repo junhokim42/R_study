@@ -66,7 +66,7 @@ mySum <- function(x){
     }
     oddSum <- sum(x[seq(1, length(x), 2)])
     evenSum <- sum(x[seq(2, length(x), 2)])
-    return(list(oddSum = sum_odd, evenSum = sum_even))
+    return(list(oddSum = oddSum, evenSum = evenSum))
   }
 }
 mySum(c(1,2,NA,NA,NA,9,10))
@@ -134,8 +134,22 @@ createVector2 <- function(...){
   }
 }
 
-createVector2(1,2,3,4,)
+createVector2(1,2,3,4,5)
+createVector2(1,2,3,4,TRUE, NA)
+createVector2(FALSE,2, NA, "fe")
 
 # Problem8
+iotest1 <- read.table("data/iotest1.txt", header = TRUE)
+iotest1 <- scan("data/iotest1.txt", sep = " ")
+iotest1
+
+cat("오름차순:", sort(iotest1), "\n")
+cat("내림차순:", sort(iotest1, decreasing=T), "\n")
+cat("합:", sum(iotest1), "\n")
+cat("평균:", mean(iotest1), "\n")
 
 # Problem9
+iotest2 <- scan("data/iotest2.txt", what = "")
+(iotest2 <- table(iotest2))
+(iotest2 <- names(which.max(iotest2)))
+cat("가장 많이 등장한 단어는", iotest2, "입니다")
